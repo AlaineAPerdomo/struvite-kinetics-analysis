@@ -52,6 +52,8 @@ next_version = max(existing_versions, default=0) + 1
 run_version = f"v{next_version}"
 main_output = output_root / f"{run_version}_{run_label}_{run_timestamp}"
 main_output.mkdir(parents=True, exist_ok=True)
+summary_output = main_output / "summaries"
+summary_output.mkdir(parents=True, exist_ok=True)
 
 # =========================================================
 # PLOT STYLE
@@ -446,7 +448,7 @@ for sheet in sheet_names:
         print(summary_df.to_string(index=False))
 
         summary_df.to_csv(
-            analyte_output / f"{sheet}_{analyte_name}_model_summary.csv",
+            summary_output / f"{sheet}_{analyte_name}_model_summary.csv",
             index=False
         )
 
@@ -524,13 +526,13 @@ for sheet in sheet_names:
 
 if combined_results:
     combined_summary_df = pd.concat(combined_results, ignore_index=True)
-    combined_summary_df.to_csv(main_output / "combined_model_summary.csv", index=False)
+    combined_summary_df.to_csv(summary_output / "combined_model_summary.csv", index=False)
 
     best_models_df = pd.DataFrame(best_model_rows).sort_values(
         by=["Best R^2 (transformed)", "RMSE in F-space"],
         ascending=[False, True]
     )
-    best_models_df.to_csv(main_output / "best_model_by_dataset.csv", index=False)
+    best_models_df.to_csv(summary_output / "best_model_by_dataset.csv", index=False)
 
     print("\n======================================")
     print("COMBINED MODEL SUMMARY")
