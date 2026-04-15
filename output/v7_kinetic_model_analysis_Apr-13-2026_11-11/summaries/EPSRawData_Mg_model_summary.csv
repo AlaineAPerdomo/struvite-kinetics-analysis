@@ -1,0 +1,5 @@
+Model,Linearized X,Linearized Y,Fit Basis,Fit Equation,Slope Meaning,Parameter,Value,Parameter from Fit,k (Ritger-Peppas),Slope,Intercept,R^2 (transformed),RMSE in F-space,RRMSE in F-space (%)
+Higuchi Model,√t,F,F vs sqrt_t,F = slope * sqrt_t + intercept,slope = k_H,k_H (Higuchi constant),0.15006305803168243,k_H = slope,,0.15006305803168243,0.08619380195127788,0.9769100444191343,0.038985434665979674,8.11826404602826
+Ritger-Peppas Model,log(t),log(F),log_F vs log_t,log_F = slope * log_t + intercept,slope = n,n (release exponent),0.3653831854790194,n = slope; k = 10^(intercept),0.24415676710728837,0.3653831854790194,-0.612331234203427,0.9658031359198211,0.05581873215230173,11.623602768814361
+Elovich Model,ln(t),F,F vs ln_t,F = slope * ln_t + intercept,slope = 1/beta,slope (1/beta),0.17452566802471983,1/beta = slope,,0.17452566802471983,0.22013406419916928,0.8614803797203604,0.09548749013810186,19.884160961019013
+First-Order Model,Time,ln(1 − F),ln(1-F) vs Time,ln(1-F) = slope * Time + intercept,slope = -k,k (first-order),0.10750441778505102,k = -slope,,-0.10750441778505102,-0.014095179282385344,0.8518768322815055,0.10875506971788573,22.64698033710693
